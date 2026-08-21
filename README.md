@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="assets/logo.png" alt="Anyone-Hub Logo" width="220"/>
+  <img src="logo.png" alt="Anyone-Hub Logo" width="220"/>
 
   # Anyone-Hub: Alpha Releases & Documentation
 
