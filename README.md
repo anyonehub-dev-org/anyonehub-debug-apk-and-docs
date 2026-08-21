@@ -1,55 +1,96 @@
-# anyonehub-debug-apk-and-docs
-anyone-hub-alpha-releases
-Bleeding-edge native Android development environment. Zero-copy architecture. Desktop-grade UI design.
+<div align="center">
+  <img src="assets/logo.png" alt="Anyone-Hub Logo" width="220"/>
 
-Welcome to the private Alpha for Anyone-Hub. This repository hosts the pre-compiled APKs, documentation, and issue tracking for early adopters testing the platform.
+  # Anyone-Hub: Alpha Releases & Documentation
 
-Anyone-Hub is not a web wrapper. It is a fully native developer platform featuring a Kotlin Jetpack Compose frontend, a headless Rust backend daemon, and deep system-level Android Virtualization Framework (AVF) integration.
+  **Desktop-Grade IDE & Terminal Native to Android. Production-Ready. Zero Compromise.**
 
-🔥 Core Architecture & Features
-Advanced UI Layout Designer: A true desktop-grade drag-and-drop canvas on mobile. Features 38+ fully functional elements that anchor perfectly into place. Powered by a bi-directional JNI pipe that generates real-time XML as you move components.
+  <p>
+    <img src="https://img.shields.io/badge/Build-Alpha_Release-orange.svg?style=for-the-badge" alt="Alpha Release" />
+    <img src="https://img.shields.io/badge/Stack-Pure_Kotlin-7F52FF.svg?style=for-the-badge&logo=kotlin" alt="Pure Kotlin" />
+    <img src="https://img.shields.io/badge/IPC-FlatBuffers-FF9900.svg?style=for-the-badge" alt="FlatBuffers" />
+    <img src="https://img.shields.io/badge/Play_Safety-Compliant-brightgreen.svg?style=for-the-badge" alt="Play Safety Compliant" />
+  </p>
 
-Zero-Copy LSP Rendering: Our headless Rust Language Server passes text directly to the Kotlin frontend via a shared direct ByteBuffer across the memory boundary. Sub-millisecond latency.
+  <p><em>Official distribution hub for pre-compiled alpha binaries, technical documentation, and issue tracking.</em></p>
+</div>
 
-Native Terminal & Shell Execution: Direct interaction with local compiler toolchains without cloud dependencies.
+---
 
-AVF Orchestration: Deep system-level execution utilizing the Android Virtualization Framework.
+## 📌 Welcome to the Alpha
 
-🚀 Installation Guide
-Because Anyone-Hub utilizes local toolchains and system-level daemons, it must be sideloaded.
+Welcome to the official testing and distribution repository for **Anyone-Hub**. This workspace hosts pre-compiled APK binaries, integration documentation, and active issue tracking for early adopters and enterprise testers.
 
-Download the APK: Navigate to the Releases tab in this repository and download the latest app-debug.apk or app-release.apk.
+Anyone-Hub is not a web wrapper or a slow hybrid container. It is a colossal, **46-module, pure Kotlin developer platform** engineered to execute desktop-grade workloads, on-device runtime compilation, and advanced terminal workflows directly on Android—requiring **zero root access** and operating in strict compliance with Google Play Safety standards.
 
-Enable Unknown Sources: On your Android device, go to Settings > Apps > Special app access > Install unknown apps and grant permission to your browser or file manager.
+---
 
-Install & Launch: Tap the downloaded APK to install.
+## ⚡ Core Architecture & Capabilities
 
-Accept the EULA: Upon first launch, you will be required to read and accept the End User License Agreement due to the system-level capabilities of the terminal.
+* **Vendored Android JediTerm Implementation:** The first and only working hard-fork of JetBrains' desktop JediTerm engine deployed natively on Android. Delivers full-spec TTY terminal emulation, native PTY control, and direct shell execution without third-party Linux deployers.
+* **Exclusive FlatBuffers Zero-Copy IPC:** Inter-process communication between the UI, background daemons, and language servers runs entirely over **FlatBuffers**, guaranteeing $O(1)$ zero-copy serialization and minimal memory footprints.
+* **The ABL (Annotated Build Language) Compiler Engine:** A self-contained, on-device runtime compiler pipeline integrating `K2JVMCompiler` (Kotlin), embedded `ECJ 3.36.0` (Java), pinned CMake (`4.1.2`), and `libaapt2.so` for split-second on-device builds.
+* **Universal Plugin System (UPS) & Custom Marketplace:** Dynamically provisions runtimes and language servers on the fly via `ups-runtime-loader`. Test our **14 active extensions** and **6 premium pro add-on tools** natively within the sandbox.
+* **Proprietary Language Engines:** Features **ANTLR4** for dynamic syntactic analysis, **EmmyLuaCore** for ultra-fast Lua LSP support, and the **Reactor Engine** for reactive flow node graph management.
 
-🧪 Alpha Testing Focus
-For this initial alpha phase, we are highly focused on stress-testing the visual layout engine.
+---
 
-Your First Mission:
+## 🚀 Installation & Sideloading Guide
 
-Open the UI Designer.
+Because Anyone-Hub executes local compiler toolchains and on-device native terminal daemons, alpha releases must be sideloaded:
 
-Drag, drop, and anchor the layout elements.
+1. **Download the Binary:** Head to the [Releases](../../releases) tab and download the latest `app-debug.apk` or `app-release.apk`.
+2. **Enable Unknown Sources:** On your Android device, navigate to:
+   `Settings > Apps > Special app access > Install unknown apps`
+   Grant installation permission to your browser or file manager.
+3. **Install & Initialize:** Tap the APK to install.
+4. **Grant Permissions:** Launch the app and grant the necessary storage and workspace execution permissions to initialize the local build caches.
 
-Observe the real-time XML generation.
+---
 
-Try to break the anchoring logic or the JNI layout pipe.
+## 🧪 Alpha Testing Objectives
 
-🐛 Bug Reports & Feedback
-This is an alpha. You will encounter bumps. We want your stack traces, logcats, and brutal feedback.
+We need aggressive, real-world stress testing across our core subsystems:
 
-Crashes: If the app crashes, capture the logcat output. Open a new issue in the Issues tab and include the raw logs.
+### 1. Terminal & PTY Stress Testing
+* Launch `anyones-Terminal` and execute high-frequency I/O tasks.
+* Test full-spec ANSI escape sequences, text reflow, and long-running interactive shell scripts.
+* Validate that PTY session management remains intact across rapid app backgrounding/resuming.
 
-Feature Requests: See something missing in the UI designer or the terminal? Open an issue tagged as enhancement.
+### 2. ABL On-Device Compilation
+* Trigger dynamic builds using the `@AblModule`, `@AblCompile`, `@AblEntryPoint`, and `@AblInject` annotations.
+* Benchmark split-second compilation speeds across mixed Kotlin/Java source sets.
+* Verify that cache cleanups cleanly flush memory via `resetWorkspace()`.
 
-If you are interested in contributing to the core Rust backend or the Jetpack Compose frontend, drop a note in your issue report or email us directly. Active alpha testers will be granted access to the main source code repository.
+### 3. UPS Plugin & Marketplace Lifecycle
+* Install, hot-reload, and teardown plugins dynamically via the `ups-runtime-loader`.
+* Ensure that dynamic dependency injection hooks execute without corrupting the sandbox boundary.
+
+---
+
+## 🐛 Submitting Issues & Stack Traces
+
+We operate on zero tolerance for unhandled exceptions. If you hit a crash, deadlock, or unexpected state:
+
+1. **Capture Logs:** Capture the raw logcat output immediately:
+   ```bash
+   adb logcat -d > crash_log.txt
+File an Issue: Open an issue under the Issues tab using the appropriate label:
+
+[BUG] for runtime exceptions, JEDI PTY failures, or FlatBuffers serialization faults.
+
+[ABL-COMPILER] for on-device compilation errors.
+
+[ENHANCEMENT] for UI/UX adjustments or feature requests.
+
+Include Reproduction Steps: Provide exact device specs (Android OS version, chipset architecture, RAM) along with reproducible steps.
 
 ⚖️ Legal & Contact
-By using this software, you acknowledge the inherent risks of executing shell commands and local compilers on your native OS. Anyone-Hub LLC is not responsible for local data loss. See the full EULA.md included in this repository.
+EULA & Disclaimers: Anyone-Hub executes local compilers and native terminal binaries within the official Android application sandbox. Users retain full responsibility for scripts and binaries executed inside their local workspace.
 
 Contact: anyone-hub.dev@zohomail.com
-Copyright: Copyright 2024 anyone-Hub
+
+Copyright: © Copyright 2024 Anyone-Hub. All rights reserved.
+
+
+***
