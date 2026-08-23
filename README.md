@@ -1,7 +1,7 @@
 <div align="center">
   <img src="logo.png" alt="Anyone-Hub Logo" width="220"/>
 
-  # Anyone-Hub: Alpha Releases & Documentation
+  # Anyone-Hub: V2.1 RC Documentation
 
   **Desktop-Grade IDE & Terminal Native to Android. Production-Ready. Zero Compromise.**
 
