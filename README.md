@@ -1,9 +1,9 @@
 <div align="center">
   <img src="logo.png" alt="Anyone-Hub Logo" width="220"/>
 
-  # Anyone-Hub: V2.1 RC Documentation
+  # anyone-Hub: V2.1 RC Documentation
 
-  **Desktop-Grade IDE & Terminal Native to Android. Production-Ready. Zero Compromise.**
+  **Desktop-Grade IDE & Terminal Native to Android. Built for Production with a Zero Compromise Mindset.**
 
   <p>
     <img src="https://img.shields.io/badge/Build-Alpha_Release-orange.svg?style=for-the-badge" alt="Alpha Release" />
@@ -12,16 +12,16 @@
     <img src="https://img.shields.io/badge/Play_Safety-Compliant-brightgreen.svg?style=for-the-badge" alt="Play Safety Compliant" />
   </p>
 
-  <p><em>Official distribution hub for pre-compiled alpha binaries, technical documentation, and issue tracking.</em></p>
+  <p><em>Official distribution hub for pre-compiled binaries, technical documentation, and issue tracking.</em></p>
 </div>
 
 ---
 
 ## 📌 Welcome to the Alpha
 
-Welcome to the official testing and distribution repository for **Anyone-Hub**. This workspace hosts pre-compiled APK binaries, integration documentation, and active issue tracking for early adopters and enterprise testers.
+Welcome to the official testing and distribution repository for **anyone-Hub**. This workspace hosts pre-compiled APK binaries, integration documentation, and active issue tracking for early adopters and enterprise testers.
 
-Anyone-Hub is not a web wrapper or a slow hybrid container. It is a colossal, **46-module, pure Kotlin developer platform** engineered to execute desktop-grade workloads, on-device runtime compilation, and advanced terminal workflows directly on Android—requiring **zero root access** and operating in strict compliance with Google Play Safety standards.
+anyone-Hub is not a web wrapper or a slow hybrid container. It is a colossal, **46-module, pure Kotlin developer platform** engineered to execute desktop-grade workloads, on-device runtime compilation, and advanced terminal workflows directly on Android—requiring **zero root access** and operating in strict compliance with Google Play Safety standards.
 
 ---
 
