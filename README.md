@@ -1,7 +1,7 @@
 <div align="center">
   <img src="logo.png" alt="Anyone-Hub Logo" width="220"/>
 
-  # Dev.io: V2.1 RC Documentation
+  # Dev.io: RC Documentation
 
   **Desktop-Grade IDE & Terminal Native to Android. Built for Production with a Zero Compromise Mindset.**
 
