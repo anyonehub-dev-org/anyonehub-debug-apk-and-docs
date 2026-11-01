@@ -1,96 +1,90 @@
 <div align="center">
   <img src="logo.png" alt="Anyone-Hub Logo" width="220"/>
 
-  # anyone-Hub: V2.1 RC Documentation
+  # Dev.io: V2.1 RC Documentation
 
   **Desktop-Grade IDE & Terminal Native to Android. Built for Production with a Zero Compromise Mindset.**
 
   <p>
-    <img src="https://img.shields.io/badge/Build-Alpha_Release-orange.svg?style=for-the-badge" alt="Alpha Release" />
+    <img src="https://shields.io" alt="Production Release" />
     <img src="https://img.shields.io/badge/Stack-Pure_Kotlin-7F52FF.svg?style=for-the-badge&logo=kotlin" alt="Pure Kotlin" />
     <img src="https://img.shields.io/badge/IPC-FlatBuffers-FF9900.svg?style=for-the-badge" alt="FlatBuffers" />
     <img src="https://img.shields.io/badge/Play_Safety-Compliant-brightgreen.svg?style=for-the-badge" alt="Play Safety Compliant" />
   </p>
 
-  <p><em>Official distribution hub for pre-compiled binaries, technical documentation, and issue tracking.</em></p>
+  <p><em>Official distribution hub for production-ready signing binaries, technical documentation, and issue tracking.</em></p>
 </div>
 
 ---
 
-## 📌 Welcome to the Alpha
+## 📌 Introduction
 
-Welcome to the official testing and distribution repository for **anyone-Hub**. This workspace hosts pre-compiled APK binaries, integration documentation, and active issue tracking for early adopters and enterprise testers.
+Welcome to the official repository for **Dev.io**. This workspace hosts our core documentation, integration guides, and issue tracking parameters for our high-performance mobile ecosystem.
 
-anyone-Hub is not a web wrapper or a slow hybrid container. It is a colossal, **46-module, pure Kotlin developer platform** engineered to execute desktop-grade workloads, on-device runtime compilation, and advanced terminal workflows directly on Android—requiring **zero root access** and operating in strict compliance with Google Play Safety standards.
+Dev.io is not a web wrapper or a slow hybrid container. It is a colossal, **46-module, pure Kotlin developer platform** engineered to execute desktop-grade workloads, on-device runtime compilation (A.B.L.), and advanced native terminal workflows directly on Android—requiring **zero root access** and operating in strict compliance with Google Play Console specifications.
 
 ---
 
 ## ⚡ Core Architecture & Capabilities
 
-* **Vendored Android JediTerm Implementation:** The first and only working hard-fork of JetBrains' desktop JediTerm engine deployed natively on Android. Delivers full-spec TTY terminal emulation, native PTY control, and direct shell execution without third-party Linux deployers.
-* **Exclusive FlatBuffers Zero-Copy IPC:** Inter-process communication between the UI, background daemons, and language servers runs entirely over **FlatBuffers**, guaranteeing $O(1)$ zero-copy serialization and minimal memory footprints.
-* **The ABL (Annotated Build Language) Compiler Engine:** A self-contained, on-device runtime compiler pipeline integrating `K2JVMCompiler` (Kotlin), embedded `ECJ 3.36.0` (Java), pinned CMake (`4.1.2`), and `libaapt2.so` for split-second on-device builds.
-* **Universal Plugin System (UPS) & Custom Marketplace:** Dynamically provisions runtimes and language servers on the fly via `ups-runtime-loader`. Test our **14 active extensions** and **6 premium pro add-on tools** natively within the sandbox.
-* **Proprietary Language Engines:** Features **ANTLR4** for dynamic syntactic analysis, **EmmyLuaCore** for ultra-fast Lua LSP support, and the **Reactor Engine** for reactive flow node graph management.
+* **Vendored Android JediTerm Implementation:** The first and only working hard-fork of JetBrains' desktop JediTerm engine deployed natively on Android. Delivers full-spec TTY terminal emulation, native PTY control (`pty_linux_arm64.S`), and direct shell command multitasking.
+* **Exclusive FlatBuffers Zero-Copy IPC:** Inter-process communication between the UI layout layer, background compiler daemons, and language servers runs entirely over **FlatBuffers**, guaranteeing $O(1)$ zero-copy serialization and non-allocating memory footprints.
+* **The ABL (Annotated Build Language) 1.2.0 Compiler Engine:** An annotation-driven, on-device runtime compiler pipeline integrating `K2JVMCompiler` (Kotlin), embedded Java bytecode compilation (`javac`), pinned CMake (`3.22+`), and 16KB-page-size aligned binary modules for seamless on-device builds.
+* **Universal Plugin System (UPS) & Secure Marketplace:** Dynamically provisions runtimes and language servers via an Android 14+ read-only dynamic code loading (DCL) pipeline. Loads our **14 active marketplace extensions** and **6 premium Pro add-on tools** (`devio-agile`, `devio-mock`, `devio-request`, `devio-schema`, `devio-snippets`, `devio-timeline`) securely on-demand.
+* **Proprietary Language Engines:** Features **ANTLR4** for real-time syntactic analysis, **EmmyLuaCore** for ultra-fast Lua semantic highlighting, and a lock-free `ConcurrentHashMap` caching engine to eliminate editor thread synchronization latency.
 
 ---
 
-## 🚀 Installation & Sideloading Guide
+## 🚀 Deployment & App Store Readiness
 
-Because Anyone-Hub executes local compiler toolchains and on-device native terminal daemons, alpha releases must be sideloaded:
+Dev.io is fully hardened for production deployment under the strict **\< 200 MB compressed download ceiling** mandated by Google Play Console:
 
-1. **Download the Binary:** Head to the [Releases](../../releases) tab and download the latest `app-debug.apk` or `app-release.apk`.
-2. **Enable Unknown Sources:** On your Android device, navigate to:
-   `Settings > Apps > Special app access > Install unknown apps`
-   Grant installation permission to your browser or file manager.
-3. **Install & Initialize:** Tap the APK to install.
-4. **Grant Permissions:** Launch the app and grant the necessary storage and workspace execution permissions to initialize the local build caches.
+1. **Compilation Configuration:** Code optimization, resource stripping, and dead-code elimination are handled via R8 (`isMinifyEnabled = true`, `isShrinkResources = true`).
+2. **Release Artifacts:** Generates official signed Android App Bundles (`.aab`) and direct device installation packages (`.apk`) using our dedicated production PKCS12 certificate store (`devio-release.jks`).
+3. **Distribution Path:**
+   - **Google Play App Bundle (.aab):** Located at `app/build/outputs/bundle/release/app-release.aab`
+   - **Local Installation Package (.apk):** Located at `app/build/outputs/apk/release/app-release.apk`
 
 ---
 
-## 🧪 Alpha Testing Objectives
+## 🧪 Operational System Testing
 
-We need aggressive, real-world stress testing across our core subsystems:
+Our diagnostic integration suites comprehensively validate all internal engine subsystems:
 
-### 1. Terminal & PTY Stress Testing
-* Launch `anyones-Terminal` and execute high-frequency I/O tasks.
-* Test full-spec ANSI escape sequences, text reflow, and long-running interactive shell scripts.
-* Validate that PTY session management remains intact across rapid app backgrounding/resuming.
+### 1. Terminal & PTY Line Discipline
+* Verifies горизонталь text overwrite and staircase layout protections via explicit `\r\n` (CRLF) sequence mapping inside a synchronized `outputLock` block.
+* Confirms native execution routing for whitelisted developer utilities (`./gradlew`, `gradle`, `abl`, `mvn`, `deps`, `ups`, `sh`, `bash`, `touch`, `clear`).
 
-### 2. ABL On-Device Compilation
-* Trigger dynamic builds using the `@AblModule`, `@AblCompile`, `@AblEntryPoint`, and `@AblInject` annotations.
-* Benchmark split-second compilation speeds across mixed Kotlin/Java source sets.
-* Verify that cache cleanups cleanly flush memory via `resetWorkspace()`.
+### 2. ABL On-Device Compilation & Inlay Providers
+* Validates dynamic compilation passes triggered by the `@AblModule`, `@AblCompile`, `@AblInject`, and `@AblRuntimeAsset` annotations.
+* Renders real-time editor semantic text maps and virtual DI inlay badges (`«Tool: jar-silo»`, `«SDK: ide-assets»`).
 
-### 3. UPS Plugin & Marketplace Lifecycle
-* Install, hot-reload, and teardown plugins dynamically via the `ups-runtime-loader`.
-* Ensure that dynamic dependency injection hooks execute without corrupting the sandbox boundary.
+### 3. UPS Plugin & Pro Module Activation Loop
+* Tracks on-demand fetch requests targeting the secure `pro_module_assets` and `plugin_payloads` Supabase Storage buckets.
+* Evaluates cryptographic SHA-256 validation checks and verifies `0400` read-only container flags before loading modules via `PreviewClassLoaderDeck`.
 
 ---
 
 ## 🐛 Submitting Issues & Stack Traces
 
-We operate on zero tolerance for unhandled exceptions. If you hit a crash, deadlock, or unexpected state:
+We operate on a zero-tolerance policy for unhandled exceptions or thread lock conditions. If you encounter a compilation fault, layout regression, or network sync boundary block:
 
-1. **Capture Logs:** Capture the raw logcat output immediately:
+1. **Capture Diagnostic Logs:** Extract raw device records via adb immediately:
    ```bash
-   adb logcat -d > crash_log.txt
-File an Issue: Open an issue under the Issues tab using the appropriate label:
+   adb logcat -d > devio_crash_log.txt
+   ```
+2. **File a Structured Report:** Submit an issue on our tracker using the appropriate catalog token:
+   - `[BUG]` for runtime thread exceptions, PTY stream corruption, or JSON serialization errors.
+   - `[ABL-COMPILER]` for on-device toolchain errors or missing SDK classpaths.
+   - `[ENHANCEMENT]` for workspace ergonomic optimizations or layout refactoring requests.
 
-[BUG] for runtime exceptions, JEDI PTY failures, or FlatBuffers serialization faults.
+---
 
-[ABL-COMPILER] for on-device compilation errors.
+## ⚖️ Legal, Privacy & Contact
 
-[ENHANCEMENT] for UI/UX adjustments or feature requests.
+* **EULA & Privacy Terms:** Dev.io runs local compilers and native shell binaries within the official Android isolated application sandbox. Users retain exclusive ownership of, and full operational responsibility for, all code, scripts, or assets executed within their local workspaces. Public metadata reads are secured via column-level security and `profiles_public` database views.
+* **Primary Contact Address:** tomslinkard@anyonehub.tech
+* **Developer Legal Support:** anyone-hub.dev@zohomail.com
+* **Official Web Platform:** [https://info-dev.io](https://info-dev.io)
 
-Include Reproduction Steps: Provide exact device specs (Android OS version, chipset architecture, RAM) along with reproducible steps.
-
-⚖️ Legal & Contact
-EULA & Disclaimers: Anyone-Hub executes local compilers and native terminal binaries within the official Android application sandbox. Users retain full responsibility for scripts and binaries executed inside their local workspace.
-
-Contact: anyone-hub.dev@zohomail.com
-
-Copyright: © Copyright 2024 Anyone-Hub. All rights reserved.
-
-
-***
+**Copyright:** © Copyright 2024–2026 Anyone-Hub LLC. All rights reserved.
