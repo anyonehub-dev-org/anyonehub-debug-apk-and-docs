@@ -6,7 +6,7 @@
   **Desktop-Grade IDE & Terminal Native to Android. Built for Production with a Zero Compromise Mindset.**
 
   <p>
-    <img src="https://shields.io" alt="Production Release" />
+    <img src="https://img.shields.io" alt="Production Release" />
     <img src="https://img.shields.io/badge/Stack-Pure_Kotlin-7F52FF.svg?style=for-the-badge&logo=kotlin" alt="Pure Kotlin" />
     <img src="https://img.shields.io/badge/IPC-FlatBuffers-FF9900.svg?style=for-the-badge" alt="FlatBuffers" />
     <img src="https://img.shields.io/badge/Play_Safety-Compliant-brightgreen.svg?style=for-the-badge" alt="Play Safety Compliant" />
